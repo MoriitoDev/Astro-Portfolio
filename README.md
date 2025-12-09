@@ -1,43 +1,56 @@
-# Astro Starter Kit: Minimal
+# 🚀 Mori's Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Bienvenido a mi portafolio personal. Este sitio web está diseñado para mostrar mis proyectos, habilidades y experiencia como desarrollador. Está construido con un enfoque en el **rendimiento**, la **estética limpia** y las **animaciones fluidas**.
 
-## 🚀 Project Structure
+## 🎨 Diseño y Tema
 
-Inside of your Astro project, you'll see the following folders and files:
+El diseño visual está inspirado en la paleta de colores **Catppuccin (Mocha)**, conocida por ser agradable a la vista y de alto contraste para entornos oscuros.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+* **Tipografía:** 'Outfit' para títulos y 'JetBrains Mono' para detalles técnicos.
+* **Estilo:** CSS moderno con variables personalizadas (`:root`), Flexbox y Grid Layout.
+* **UI:** Tarjetas con efectos de elevación, glassmorphism sutil y micro-interacciones.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Tecnologías Usadas
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+* **[Astro](https://astro.build/):** Framework principal para generar un sitio estático ultra rápido.
+* **HTML5 & CSS3:** Maquetación semántica y estilos personalizados sin dependencias pesadas.
+* **JavaScript (Vanilla):** Para la lógica de las animaciones (Intersection Observer, efectos de escritura).
+* **Astro Icon:** Integración optimizada de iconos (FontAwesome & Simple Icons).
+* **Fontsource:** Gestión de tipografías locales para mejorar la velocidad de carga.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## ✨ Características
 
-## 🧞 Commands
+* ⚡ **Rendimiento Óptimo:** Gracias a la arquitectura de "Islas" de Astro (aunque en este caso es mayormente estático).
+* 📱 **Diseño Responsivo:** Se adapta perfectamente a móviles, tablets y escritorio.
+* The **Animaciones al hacer Scroll:** Los elementos aparecen suavemente al entrar en el viewport.
+* 👋 **Elementos Interactivos:** Animaciones CSS en el saludo y efectos hover en las tarjetas de proyectos.
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Cómo ejecutarlo localmente
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Si quieres clonar este proyecto y probarlo en tu máquina:
 
-## 👀 Want to learn more?
+1.  **Clona el repositorio:**
+    ```bash
+    git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/nombre-del-repo.git)
+    ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+2.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
+
+3.  **Instala las librerías de iconos (si no se instalaron automáticamente):**
+    ```bash
+    npm install @iconify-json/fa6-brands @iconify-json/simple-icons
+    ```
+
+4.  **Inicia el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+
+5.  Abre tu navegador en `http://localhost:4321`.
