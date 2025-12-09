@@ -1,0 +1,25 @@
+{
+  "name": "tidal-trappist",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/outfit": "^5.2.8",
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/fa6-solid": "^1.2.4",
+    "@iconify-json/simple-icons": "^1.2.62",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.1",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "@catppuccin/tailwindcss": "^1.0.0"
+  }
+}
