@@ -1,22 +1,15 @@
 ---
-import '@fontsource/outfit/400.css';
-import '@fontsource/outfit/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { Image } from 'astro:assets';
 
+// Importación de imágenes
 import pfp from '../assets/pfp.webp';
 import prisionero from '../assets/prisionero.jpg';
-import portfolio from '../assets/portfolio.png'
+import portfolio from '../assets/portfolio.png';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mori's Portfolio</title>
-</head>
-<body>
+<Layout title="Mori's Portfolio">
   
   <header>
     <div class="header-text">
@@ -25,7 +18,14 @@ import portfolio from '../assets/portfolio.png'
         And I'm a <span id="iam-display" class="name">Developer</span>
       </h1>
     </div>
-    <img src={pfp.src} alt="Mori Profile" id="pfp">
+    
+    <Image 
+      src={pfp} 
+      alt="Mori Profile" 
+      id="pfp" 
+      width={400} 
+      height={400}
+    />
   </header>
 
   <section class="Projects">
@@ -34,123 +34,59 @@ import portfolio from '../assets/portfolio.png'
 
     <div class="projects-container">
       
-      <article class="project-card scroll-animate">
-        <div class="card-image">
-          <img src={prisionero.src} alt="Juego del prisionero">
-        </div>
-
-        <div class="card-content">
-          <div class="card-header">
-            <h2>Juego del Prisionero</h2>
-            <div class="tech-stack">
-              <Icon name="fa6-brands:python" />
-              <Icon name="fa6-brands:github" />
-            </div>
-          </div>
-          
-          <p>
-            Simulación estratégica basada en la teoría de juegos. Analiza la psicología y la cooperación humana mediante algoritmos lógicos en Python.
-          </p>
-          
-          <a href="https://github.com/MoriitoDev/juego-prisionero" target="_blank" class="card-link">Ver repositorio &rarr;</a>
-        </div>
-      </article>
+      <ProjectCard 
+        title="Juego del Prisionero"
+        description="Simulación estratégica basada en la teoría de juegos. Analiza la psicología y la cooperación humana mediante algoritmos lógicos en Python."
+        image={prisionero}
+        repoLink="https://github.com/MoriitoDev/juego-prisionero"
+        techIcons={['fa6-brands:python', 'fa6-brands:github']}
+      />
  
-      <article class="project-card scroll-animate">
-        <div class="card-image">
-           <img src={portfolio.src} alt="Preview del Portafolio">
-        </div>
-
-        <div class="card-content">
-          <div class="card-header">
-            <h2>Portafolio Personal</h2>
-            <div class="tech-stack">
-              <Icon name="simple-icons:astro" />
-              <Icon name="fa6-brands:html5" />
-              <Icon name="fa6-brands:css3-alt" />
-            </div>
-          </div>
-          
-          <p>
-            Este mismo sitio web. Desarrollado con Astro para un rendimiento óptimo, maquetado con HTML semántico y estilizado con CSS moderno personalizado desde cero.
-          </p>
-
-          <a href="https://github.com/MoriitoDev/Astro-Portfolio" target="_blank" class="card-link">Ver Código Source &rarr;</a>
-        </div>
-      </article>
+      <ProjectCard 
+        title="Portafolio Personal"
+        description="Este mismo sitio web. Desarrollado con Astro para un rendimiento óptimo, maquetado con HTML semántico y estilizado con CSS moderno."
+        image={portfolio}
+        repoLink="https://github.com/MoriitoDev/Astro-Portfolio"
+        linkLabel="Ver repositorio"
+        techIcons={['simple-icons:astro', 'fa6-brands:html5', 'fa6-brands:css3-alt']}
+      />
 
     </div>
   </section>
 
   <script>
-    // Animación del texto del header
+    // 1. Animación del texto del header
     const iam = ["Developer", "Programmer", "Gamer"];
     const textElement = document.getElementById('iam-display');
     let x = 0;
 
-    setInterval(() => {
-      if (textElement) {
-        textElement.classList.add("hide");
-        setTimeout(() => {
-          x++;
-          if (x >= iam.length) x = 0;
-          textElement.innerText = iam[x];
-          textElement.classList.remove("hide");
-        }, 500); 
-      }
-    }, 3000);
+    if (textElement) {
+      setInterval(() => {
+          textElement.classList.add("hide");
+          setTimeout(() => {
+            x++;
+            if (x >= iam.length) x = 0;
+            textElement.innerText = iam[x];
+            textElement.classList.remove("hide");
+          }, 500); 
+      }, 3000);
+    }
 
-    // Animación de Scroll (Intersection Observer)
+    // 2. Animación de Scroll (Intersection Observer)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // Opcional: dejar de observar para que solo se anime una vez
-          // observer.unobserve(entry.target); 
         }
       });
-    }, { threshold: 0.1 }); // Se activa al ver el 10% del elemento
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
   </script>
 
-</body>
-</html>
+</Layout>
 
 <style>
-  /* Variables de color (Tema Catppuccin Mocha) */
-  :root {
-    --ctp-base: #1e1e2e;
-    --ctp-text: #cdd6f4;
-    --ctp-subtext: #a6adc8;
-    --ctp-lavender: #b4befe;
-    --ctp-mauve: #cba6f7;
-    --ctp-surface: #313244;
-    --ctp-overlay: #45475a;
-    --ctp-pink: #f5c2e7;
-    --ctp-teal: #94e2d5;
-    
-    --font-main: 'Outfit', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-  }
-
-  /* Reset básico */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background-color: var(--ctp-base);
-    color: var(--ctp-text);
-    font-family: var(--font-main);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    padding-bottom: 4rem;
-    overflow-x: hidden; /* Evita scroll horizontal accidental */
-  }
-
   /* --- HEADER SECTION --- */
   header {
     display: flex;
@@ -165,7 +101,7 @@ import portfolio from '../assets/portfolio.png'
   }
 
   h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5em); /* Texto responsivo */
+    font-size: clamp(2.5rem, 5vw, 4.5em);
     margin: 0;
     line-height: 1.1;
   }
@@ -212,106 +148,6 @@ import portfolio from '../assets/portfolio.png'
     margin-top: 4rem;
   }
 
-  /* --- CARD COMPONENT STYLES --- */
-  .project-card {
-    background-color: var(--ctp-surface);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--ctp-overlay);
-    display: flex;
-    flex-direction: column;
-    width: 380px;
-    max-width: 90vw;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-    text-align: left;
-  }
-
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    border-color: var(--ctp-mauve);
-  }
-
-  .card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .project-card:hover .card-image img {
-    transform: scale(1.05);
-  }
-
-  .card-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    flex-grow: 1; /* Asegura que el contenido ocupe el espacio disponible */
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .card-header h2 {
-    font-size: 1.5rem;
-    margin: 0;
-    color: var(--ctp-mauve);
-    font-family: var(--font-mono);
-    line-height: 1.2;
-  }
-
-  .tech-stack {
-    display: flex;
-    gap: 8px;
-  }
-
-  .tech-stack [data-icon] {
-    width: 1.8rem;
-    height: 1.8rem;
-    color: var(--ctp-subtext);
-    transition: color 0.3s, transform 0.3s;
-  }
-
-  .project-card:hover .tech-stack [data-icon] {
-    color: var(--ctp-pink);
-    transform: translateY(-2px);
-  }
-
-  .card-content p {
-    font-size: 0.95rem;
-    color: var(--ctp-subtext);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .card-link {
-    margin-top: auto;
-    text-decoration: none;
-    color: var(--ctp-pink);
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: inline-block;
-    transition: opacity 0.2s;
-  }
-
-  .card-link:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-  }
-
-  /* --- ANIMATIONS --- */
-  /* Header text animation */
   #iam-display {
     opacity: 1;
     transform: translateY(0px);
@@ -343,17 +179,5 @@ import portfolio from '../assets/portfolio.png'
     50% { transform: rotate(10.0deg) }
     60% { transform: rotate(0.0deg) }
     100% { transform: rotate(0.0deg) }
-  }
-
-  /* Scroll fade animation */
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-
-  .scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 </style>
