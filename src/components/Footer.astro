@@ -1,0 +1,61 @@
+---
+const today = new Date();
+import { Icon } from 'astro-icon/components';
+---
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; {today.getFullYear()} Mori. Todos los derechos reservados.</p>
+    
+    <div class="social-links">
+      <a href="https://github.com/MoriitoDev" target="_blank">
+        <Icon name={'simple-icons:github'} />
+      </a>
+      <a href="https://www.linkedin.com/in/rafa-c%C3%B3rdoba-zafra-3a4a8b396/" target="_blank">
+        <Icon name={'simple-icons:linkedin'} />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 2rem;
+    text-align: center;
+    color: var(--ctp-lavender);
+    margin-top: 4rem;
+    background-color: var(--ctp-crust);
+    
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em; 
+    margin-top: 1em; 
+  }
+
+  a {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0.5em;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+
+  a:hover {
+    background-color: var(--ctp-surface); 
+  }
+
+  [data-icon] {
+    color: white;
+    font-size: 2em;
+    transition: color 0.2s;
+  }
+
+  a:hover [data-icon] {
+    color: var(--ctp-lavender); 
+  }
+</style>

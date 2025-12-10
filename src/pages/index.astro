@@ -2,11 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { Image } from 'astro:assets';
+import SkillCard from '../components/SkillCard.astro';
+import Footer from '../components/Footer.astro'
 
 // Importación de imágenes
 import pfp from '../assets/pfp.webp';
 import prisionero from '../assets/prisionero.jpg';
 import portfolio from '../assets/portfolio.png';
+import kuroz from '../assets/kuroz.png'
 ---
 
 <Layout title="Mori's Portfolio">
@@ -25,6 +28,7 @@ import portfolio from '../assets/portfolio.png';
       id="pfp" 
       width={400} 
       height={400}
+      fetchpriority="high"
     />
   </header>
 
@@ -51,11 +55,57 @@ import portfolio from '../assets/portfolio.png';
         techIcons={['simple-icons:astro', 'fa6-brands:html5', 'fa6-brands:css3-alt']}
       />
 
+      <ProjectCard 
+      title='KuroZ Bot'
+      description='Un bot de discord desarollado principalmente por mi con la colaboración de algunos amigos.'
+      image={kuroz}
+      repoLink='https://github.com/MoriitoDev/kuroz_development'
+      linkLabel='Ver repositorio'
+      techIcons={['simple-icons:discord', 'simple-icons:python']}
+
+      />
+
     </div>
   </section>
 
+  <section class="Skills">
+    <hr>
+    <h1>Skills</h1>
+
+    <div class="skill-container">
+      <SkillCard 
+      title='FrontEnd'
+      techIcons={['simple-icons:javascript', 'simple-icons:html5', 'simple-icons:css']}
+      accentColor='#f9e2af'
+      />
+
+      <SkillCard 
+      title='BackEnd'
+      techIcons={['simple-icons:python', 'simple-icons:javascript', 'fa6-brands:java']}
+      accentColor='#89dceb'
+    />
+
+    <SkillCard 
+      title='Frameworks'
+      techIcons={['simple-icons:astro', 'simple-icons:discorddotjs', 'simple-icons:springboot']}
+      accentColor='#a6e3a1'
+    />
+    </div>
+  </section>
+
+  <Footer />
+
+  <a href="#" id="floating-pfp">
+  <Image 
+    src={pfp} 
+    alt="Mori Mini" 
+    width={80} 
+    height={80}
+  />
+  </a>
+
   <script>
-    // 1. Animación del texto del header
+    // Animación del texto del header
     const iam = ["Developer", "Programmer", "Gamer"];
     const textElement = document.getElementById('iam-display');
     let x = 0;
@@ -72,7 +122,25 @@ import portfolio from '../assets/portfolio.png';
       }, 3000);
     }
 
-    // 2. Animación de Scroll (Intersection Observer)
+    // Mini pfp para volver arriba
+    const originalPFP = document.getElementById('pfp');
+    const miniPFP = document.getElementById('floating-pfp')
+
+    if (originalPFP && miniPFP) {
+      const pfpObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            miniPFP.classList.add('mipfp-show');
+          }
+          else {
+            miniPFP.classList.remove('mipfp-show');
+          }
+        })
+      })
+      pfpObserver.observe(originalPFP)
+    }
+
+    // Animación de Scroll (Intersection Observer)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -128,9 +196,10 @@ import portfolio from '../assets/portfolio.png';
     margin: 8em auto;
   }
 
+  /* --- PROJECTS SECTION --- */
   .Projects h1 {
     margin: 0.5em 0;
-    color: var(--ctp-teal);
+    color: var(--ctp-lavender);
   }
 
   .Projects hr {
@@ -141,6 +210,14 @@ import portfolio from '../assets/portfolio.png';
   }
 
   .projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .skill-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -162,6 +239,27 @@ import portfolio from '../assets/portfolio.png';
     filter: blur(4px);
   }
 
+  /* SKILLS */
+  .Skills {
+    text-align: center;
+    width: 90vw;
+    max-width: 1200px;
+    margin: 8em auto;
+  }
+
+  /* --- PROJECTS SECTION --- */
+  .Skills h1 {
+    margin: 0.5em 0;
+    color: var(--ctp-lavender);
+  }
+
+  .Skills hr {
+    width: 30vw;
+    margin: 0 auto;
+    border-color: var(--ctp-overlay);
+    opacity: 0.5;
+  }
+
   /* Waving hand animation */
   .waving-hand {
     display: inline-block;
@@ -179,5 +277,40 @@ import portfolio from '../assets/portfolio.png';
     50% { transform: rotate(10.0deg) }
     60% { transform: rotate(0.0deg) }
     100% { transform: rotate(0.0deg) }
+  }
+
+  /* Styles for the mini pfp*/
+
+  #floating-pfp {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+  
+
+  #floating-pfp img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--ctp-lavender);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  #floating-pfp.mipfp-show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  #floating-pfp:hover {
+    transform: translateY(-5px) scale(1.1);
   }
 </style>

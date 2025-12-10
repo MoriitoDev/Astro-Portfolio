@@ -49,7 +49,6 @@ const {
     background-color: var(--ctp-surface);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--ctp-overlay);
     display: flex;
     flex-direction: column;
     width: 380px;
@@ -62,6 +61,7 @@ const {
   .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 30px var(--ctp-mauve);
+    transition: 0.5s ease;
   }
 
   .card-image {
@@ -151,5 +151,13 @@ const {
   :global(.scroll-animate.visible) {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  
+  .project-card.scroll-animate {
+      transition: 
+          opacity 0.8s ease-out,  
+          transform 0.5s ease,         
+          box-shadow 0.5s ease;         
   }
 </style>
