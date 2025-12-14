@@ -4,9 +4,10 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { Image } from 'astro:assets';
 import SkillCard from '../components/SkillCard.astro';
 import Footer from '../components/Footer.astro'
+import { Icon } from 'astro-icon/components';
 
 // Importación de imágenes
-import pfp from '../assets/pfp.webp';
+import pfp from '../assets/pfp.jpg';
 import prisionero from '../assets/prisionero.jpg';
 import portfolio from '../assets/portfolio.png';
 import kuroz from '../assets/kuroz.png'
@@ -17,9 +18,16 @@ import kuroz from '../assets/kuroz.png'
   <header>
     <div class="header-text">
       <h1 id="header-presentation">
-        Hi I'm <span class="name">Mori</span> <span class="waving-hand">👋</span> <br> 
-        And I'm a <span id="iam-display" class="name">Developer</span>
+        Hi I'm Mori <span class="waving-hand">👋</span> <br> 
+        And I'm a <span id="iam-display" class="name purple-gradient">Developer</span>
       </h1>
+
+      <p class="desc-header">
+  Full Stack Developer based in Córdoba. A Medac Arena student obsessed with continuous learning. I focus on building modern, functional websites while mastering new technologies every day.
+      </p>
+
+      <a href="https://github.com/MoriitoDev?tab=repositories" class="btn" target="_blank"> <Icon name={'fa6-brands:github'} /> View repositories</a>
+      <a href="https://www.linkedin.com/in/rafa-c%C3%B3rdoba-zafra-3a4a8b396/" class="btn" target="_blank"> <Icon name={'fa6-brands:linkedin'} />Contact me</a>
     </div>
     
     <Image 
@@ -95,18 +103,9 @@ import kuroz from '../assets/kuroz.png'
 
   <Footer />
 
-  <a href="#" id="floating-pfp">
-  <Image 
-    src={pfp} 
-    alt="Mori Mini" 
-    width={80} 
-    height={80}
-  />
-  </a>
-
   <script>
     // Animación del texto del header
-    const iam = ["Developer", "Programmer", "Gamer"];
+    const iam = ["Developer", "Programmer", "Student"];
     const textElement = document.getElementById('iam-display');
     let x = 0;
 
@@ -120,24 +119,6 @@ import kuroz from '../assets/kuroz.png'
             textElement.classList.remove("hide");
           }, 500); 
       }, 3000);
-    }
-
-    // Mini pfp para volver arriba
-    const originalPFP = document.getElementById('pfp');
-    const miniPFP = document.getElementById('floating-pfp')
-
-    if (originalPFP && miniPFP) {
-      const pfpObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            miniPFP.classList.add('mipfp-show');
-          }
-          else {
-            miniPFP.classList.remove('mipfp-show');
-          }
-        })
-      })
-      pfpObserver.observe(originalPFP)
     }
 
     // Animación de Scroll (Intersection Observer)
@@ -175,8 +156,7 @@ import kuroz from '../assets/kuroz.png'
   }
 
   .name {
-    color: var(--ctp-lavender);
-    display: inline-block; 
+    display: inline-block;
   }
 
   #pfp {
@@ -187,6 +167,57 @@ import kuroz from '../assets/kuroz.png'
     box-shadow: 0 0 30px var(--ctp-lavender);
     object-fit: cover;
   }
+
+  .desc-header {
+    width: fit-content;
+    font-weight: 550;
+    font-size: 1.3em;
+    margin-top: .5em;
+    color: var(--ctp-subtext);
+    width: 50vw;
+  }
+
+  .purple-gradient {
+    background: linear-gradient(45deg, rgba(203, 166, 247, 1), rgba(137, 180, 250, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn {
+    display: inline-block;
+    font-size: 1.5em;
+    color: var(--ctp-base);
+    border: 2px solid var(--ctp-lavender);
+    background-color: var(--ctp-lavender);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: ease 0.3s;
+    text-align: center;
+    margin-top: 1em;
+    padding: 0.3em;
+    font-weight: bold;
+    margin-right: .8em;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+    color: var(--ctp-text);
+    border-color: var(--ctp-text);
+  }
+  .btn a {
+    padding: 0.5em 1em;
+    display: inline-block;
+  }
+
+  .btn [data-icon] {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 0.15em;
+  }
+
+
 
   /* --- PROJECTS SECTION --- */
   .Projects {
@@ -293,24 +324,5 @@ import kuroz from '../assets/kuroz.png'
     pointer-events: none;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-  }
-  
-
-  #floating-pfp img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--ctp-lavender);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
-
-  #floating-pfp.mipfp-show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: all;
-  }
-
-  #floating-pfp:hover {
-    transform: translateY(-5px) scale(1.1);
   }
 </style>
