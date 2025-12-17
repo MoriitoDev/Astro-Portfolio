@@ -1,4 +1,7 @@
 ---
+//npm install @iconify-json/logos For icon support
+//npm install astro-icon For icon support
+//npm install @iconify-json/skill-icons For icon support
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { Image } from 'astro:assets';
@@ -83,19 +86,19 @@ import kuroz from '../assets/kuroz.png'
     <div class="skill-container">
       <SkillCard 
       title='FrontEnd'
-      techIcons={['simple-icons:javascript', 'simple-icons:html5', 'simple-icons:css']}
-      accentColor='#f9e2af'
+      techIcons={['skill-icons:html', 'skill-icons:css', 'logos:javascript']}
+      accentColor='#FF7A30'
       />
 
       <SkillCard 
       title='BackEnd'
-      techIcons={['simple-icons:python', 'simple-icons:javascript', 'fa6-brands:java']}
+      techIcons={['logos:python', 'logos:javascript', 'logos:java']}
       accentColor='#89dceb'
     />
 
     <SkillCard 
       title='Frameworks'
-      techIcons={['simple-icons:astro', 'simple-icons:discorddotjs', 'simple-icons:springboot']}
+      techIcons={['logos:astro-icon', 'logos:nodejs-icon', 'logos:spring-icon', 'skill-icons:tailwindcss-dark']}
       accentColor='#a6e3a1'
     />
     </div>

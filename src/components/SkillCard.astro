@@ -21,6 +21,8 @@ const {
         {techIcons.map((icon) => (
             <Icon name={icon} />
         ))}
+
+        <hr>
     </div>
 </article>
 
@@ -28,8 +30,8 @@ const {
     .skill {
         background-color: var(--ctp-surface);
         border-radius: 10px;
-        height: 50vh;
-        width: 30vw;
+        height: 20em;
+        width: 35em;
         border-top: 0.3em solid var(--accent);
         transition: 0.5s ease;
         text-align: center;
@@ -51,7 +53,7 @@ const {
     }
 
     .skills-icons [data-icon] {
-        font-size: 2em;
+        font-size: 3em;
         margin-block: 1em;
         color: var(--ctp-subtext);
         transition: 0.3s ease;
@@ -64,5 +66,13 @@ const {
         filter: drop-shadow(0 0 5px var(--accent));
     }
 
-    
+    hr {
+        border: none;
+        height: .3em;
+        background-color: var(--accent);
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+
 </style>
