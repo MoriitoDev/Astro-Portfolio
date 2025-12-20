@@ -14,6 +14,7 @@ import pfp from '../assets/pfp.jpg';
 import prisionero from '../assets/prisionero.jpg';
 import portfolio from '../assets/portfolio.png';
 import kuroz from '../assets/kuroz.png'
+import ollector from '../assets/ollector.jpg'
 ---
 
 <Layout title="Mori's Portfolio">
@@ -49,8 +50,17 @@ import kuroz from '../assets/kuroz.png'
 
     <div class="projects-container">
       
+      <ProjectCard
+        title="Ollector",
+        description="A AI study companion that helpes using AI (Ollama 3.2) answering questions based on the source material provided by the user."
+        image={ollector}
+        repoLink="https://github.com/MoriitoDev/ollector"
+        linkLabel="View repository"
+        techIcons={["simple-icons:react", "simple-icons:python", "ri:nextjs-fill"]}
+      />
+
       <ProjectCard 
-        title="Juego del Prisionero"
+        title="Prisioner's Dilemma Simulation"
         description="A strategic simulation based on Game Theory. It analyzes human psychology and cooperation dynamics through logical algorithms in Python."
         image={prisionero}
         repoLink="https://github.com/MoriitoDev/juego-prisionero"
@@ -59,7 +69,7 @@ import kuroz from '../assets/kuroz.png'
       />
  
       <ProjectCard 
-        title="Portafolio Personal"
+        title="Astro Portfolio"
         description="This personal portfolio. Built with Astro for optimal performance, utilizing semantic HTML and modern CSS styling."
         image={portfolio}
         repoLink="https://github.com/MoriitoDev/Astro-Portfolio"
