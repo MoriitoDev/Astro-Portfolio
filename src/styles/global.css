@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+    --font-inspiration: 'Inspiration', sans-serif;
+    --font-kalam: 'Kalam', sans-serif;
+
+    /* Colors from the Rosé Pine theme. */
+    --color-pine-base: #191724;
+    --color-pine-surface: #1f1d2e;
+    --color-pine-overlay: #26233a;
+    --color-pine-rose: #ebbcba;
+    --color-pine-gold: #f6c177;
+    --color-pine-love: #eb6f92;
+    --color-pine-foam: #9ccfd8;
+    --color-pine-pine: #31748f;
+    --color-pine-text: #e0def4;
+
+    @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+    --animate-fade-in: fade-in 1s ease-out forwards;
+  }
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, #1f1d2e 1px, transparent 1px),
+    linear-gradient(to bottom, #1f1d2e 1px, transparent 1px);
+}
+
+
+@font-face {
+  font-family: 'Inspiration';
+  src: url('/fonts/Inspiration-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kalam';
+  src: url('/fonts/Kalam-Regular.ttf') format('truetype');
+}

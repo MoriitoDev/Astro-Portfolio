@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const techs = [
+  { name: 'React', icon: 'simple-icons:react', color: 'group-hover:text-[#61DAFB]' },
+  { name: 'JavaScript', icon: 'simple-icons:javascript', color: 'group-hover:text-[#F7DF1E]' },
+  { name: 'TypeScript', icon: 'simple-icons:typescript', color: 'group-hover:text-[#3178C6]' },
+  { name: 'Astro', icon: 'simple-icons:astro', color: 'group-hover:text-[#FF5D01]' },
+  { name: 'Tailwind', icon: 'simple-icons:tailwindcss', color: 'group-hover:text-[#06B6D4]' },
+  { name: 'Node.js', icon: 'simple-icons:nodedotjs', color: 'group-hover:text-[#5FA04E]' },
+  { name: 'PostgreSQL', icon: 'simple-icons:postgresql', color: 'group-hover:text-[#4169E1]' },
+  { name: 'Python', icon: 'simple-icons:python', color: 'group-hover:text-[#3776AB]' },
+  { name: 'Docker', icon: 'simple-icons:docker', color: 'group-hover:text-[#2496ED]' },
+  { name: 'MySQL', icon: 'simple-icons:mysql', color: 'group-hover:text-[#4479A1]' },
+  { name: 'Java', icon: 'simple-icons:openjdk', color: 'group-hover:text-[#007396]' },
+  { name: 'GitHub', icon: 'simple-icons:github', color: 'group-hover:text-[#181717]' },
+  { name: 'Linux', icon: 'simple-icons:linux', color: 'group-hover:text-[#FCC624]' },
+  { name: 'Vercel', icon: 'simple-icons:vercel', color: 'group-hover:text-[#ffffff]' },
+];
+---
+
+<div class="relative w-full overflow-hidden py-16">
+  <p class="font-kalam text-pine-gold text-center mb-10 opacity-60 uppercase tracking-[0.3em] text-3xl">
+    Technical Stack
+  </p>
+
+  <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-pine-base to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-pine-base to-transparent z-10 pointer-events-none"></div>
+
+  <div class="flex animate-marquee whitespace-nowrap gap-8 items-center py-4">
+    {[...Array(2)].map(() => (
+      <div class="flex gap-8 items-center">
+        {techs.map((tech) => (
+          <div class="group flex items-center gap-4 px-8 py-4 bg-pine-surface/30 border border-pine-overlay/20 rounded-2xl transition-all duration-300 hover:border-pine-rose/40 hover:-translate-y-1 hover:bg-pine-overlay/10 shadow-sm">
+            
+            <Icon 
+              name={tech.icon} 
+              class={`size-8 text-pine-text/40 transition-all duration-500 ${tech.color} group-hover:scale-110`} 
+            />
+            
+            <span class="font-kalam text-2xl text-pine-text/50 group-hover:text-pine-text transition-colors duration-300">
+              {tech.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 45s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-marquee > div {
+    flex-shrink: 0;
+  }
+</style>

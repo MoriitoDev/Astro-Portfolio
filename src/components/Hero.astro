@@ -1,0 +1,35 @@
+---
+import '../styles/global.css'
+import { ChevronsDown } from '@lucide/astro'
+import Techs from './Techs.astro'
+---
+
+<div class="flex flex-col items-center justify-center min-h-screen animate-fade-in h-fit ">
+
+    <h1 class="font-inspiration text-pine-foam text-[clamp(3rem,18vw,15rem)] text-center">
+        Rafa Córdoba
+    </h1>
+
+    <h2 class="font-kalam text-pine-gold text-[clamp(1.5rem,6vw,3rem)] text-center">
+        Fullstack Developer
+    </h2>
+
+    <div class="mt-4 flex flex-row gap-4">
+
+        <a href="#projects" class="px-8 py-3 bg-pine-rose text-pine-base font-bold rounded-lg hover:bg-pine-love transition-colors shadow-lg">
+            Projects
+        </a>
+
+        <a href="#contact" class="px-8 py-3 border border-pine-overlay text-pine-text rounded-lg hover:bg-pine-surface transition-colors">
+            Contact Me
+        </a>
+
+    </div>
+
+    <a href="#about" class="mt-20">
+        <ChevronsDown class="size-12 animate-bounce" color='#31748f'/>
+    </a>
+
+    
+</div>
+

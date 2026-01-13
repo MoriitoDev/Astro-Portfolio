@@ -1,0 +1,172 @@
+---
+import { Mail, Send, Linkedin, Github } from '@lucide/astro';
+
+// Astro lee la clave desde tu archivo .env (o desde las variables de Vercel)
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+---
+
+<section id="contact" class="py-24 px-6 relative overflow-hidden bg-grid">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 relative z-10">
+      <h3 class="font-kalam text-pine-gold text-2xl">Let's talk?</h3>
+      <h2 class="font-inspiration text-pine-text text-8xl leading-none drop-shadow-sm">Contact Me</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      
+      <div class="flex flex-col gap-8 order-2 md:order-1">
+        <div class="bg-pine-surface/50 border border-pine-overlay/50 p-8 rounded-3xl -rotate-2 hover:rotate-0 transition-transform duration-500 shadow-xl backdrop-blur-md">
+          <p class="font-kalam text-pine-text/90 text-xl leading-relaxed">
+            I'm currently looking for new opportunities or just to say hi. 
+            <span class="text-pine-rose block mt-2 font-bold">My inbox is always open!</span>
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a href="https://www.linkedin.com/in/rafa-c%C3%B3rdoba-zafra-3a4a8b396/" target="_blank" class="text-pine-pine p-4 bg-pine-surface border border-pine-overlay rounded-2xl hover:border-pine-iris/50 hover:-translate-y-1 transition-all group shadow-lg rotate-3 hover:rotate-0">
+            <Linkedin class="size-8 text-pine-iris group-hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://github.com/MoriitoDev" target="_blank" class="p-4 bg-pine-surface border border-pine-overlay rounded-2xl hover:border-pine-foam/50 hover:-translate-y-1 transition-all group shadow-lg -rotate-2 hover:rotate-0">
+            <Github class="size-8 text-pine-foam group-hover:scale-110 transition-transform" />
+          </a>
+          <a href="mailto:rafacordobazafra@gmail.com" class="p-4 bg-pine-surface border border-pine-overlay rounded-2xl hover:border-pine-gold/50 hover:-translate-y-1 transition-all group shadow-lg rotate-1 hover:rotate-0 cursor-pointer">
+            <Mail class="size-8 text-pine-gold group-hover:scale-110 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      <form id="form" method="POST" class="relative group order-1 md:order-2">
+        
+        <input type="hidden" name="access_key" value={accessKey}>
+        <input type="hidden" name="subject" value="Nuevo contacto desde Portfolio">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <div class="relative bg-pine-surface/80 border border-pine-overlay p-8 rounded-3xl shadow-2xl rotate-1 group-hover:rotate-0 transition-transform duration-500 backdrop-blur-sm">
+          <div class="space-y-6">
+            <div>
+              <label for="name" class="font-kalam text-pine-foam ml-2">Your name</label>
+              <input 
+                type="text" 
+                name="name"
+                id="name" 
+                required
+                placeholder="John Doe"
+                class="w-full bg-pine-base/50 border border-pine-overlay rounded-xl px-4 py-3 text-pine-text focus:outline-none focus:border-pine-rose focus:ring-1 focus:ring-pine-rose/20 transition-all placeholder:text-pine-text/20 font-kalam"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="font-kalam text-pine-foam ml-2">Email address</label>
+              <input 
+                type="email" 
+                name="email"
+                id="email" 
+                required
+                placeholder="hello@youremail.com"
+                class="w-full bg-pine-base/50 border border-pine-overlay rounded-xl px-4 py-3 text-pine-text focus:outline-none focus:border-pine-rose focus:ring-1 focus:ring-pine-rose/20 transition-all placeholder:text-pine-text/20 font-kalam"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="font-kalam text-pine-foam ml-2">Message</label>
+              <textarea 
+                id="message" 
+                name="message"
+                rows="4" 
+                required
+                placeholder="How can I help you?"
+                class="w-full bg-pine-base/50 border border-pine-overlay rounded-xl px-4 py-3 text-pine-text focus:outline-none focus:border-pine-rose focus:ring-1 focus:ring-pine-rose/20 transition-all placeholder:text-pine-text/20 font-kalam resize-none"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              id="submit-btn"
+              class="w-full py-4 bg-pine-rose text-pine-base font-bold rounded-xl hover:bg-pine-love hover:shadow-pine-rose/20 hover:shadow-lg transition-all flex items-center justify-center gap-3 group/btn overflow-hidden relative"
+            >
+              <span id="btn-text" class="relative z-10 flex items-center gap-2">
+                Send Message 
+                <Send class="size-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+              </span>
+            </button>
+            
+            <p id="result" class="text-center font-kalam mt-2 hidden"></p>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    view-timeline-name: --contact;
+    view-timeline-axis: block;
+    animation-timeline: --contact;
+    animation-name: reveal;
+    animation-range: entry 10% cover 30%;
+    animation-fill-mode: both;
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, rgba(156, 163, 175, 0.05) 1px, transparent 1px);
+  }
+</style>
+
+<script is:inline>
+  const form = document.getElementById('form');
+  const result = document.getElementById('result');
+  const btnText = document.getElementById('btn-text');
+  const btn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Feedback visual inmediato
+    btn.disabled = true;
+    result.classList.remove('hidden');
+    result.textContent = "Sending message...";
+    result.className = "text-center font-kalam mt-2 text-pine-gold";
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let res = await response.json();
+      if (response.status == 200) {
+        result.textContent = "✨ Message sent! I'll be in touch soon.";
+        result.className = "text-center font-kalam mt-2 text-pine-foam";
+        form.reset();
+      } else {
+        result.textContent = res.message || "Something went wrong.";
+        result.className = "text-center font-kalam mt-2 text-pine-love";
+      }
+    })
+    .catch(error => {
+      result.textContent = "Error: Could not connect to the server.";
+      result.className = "text-center font-kalam mt-2 text-pine-love";
+    })
+    .finally(() => {
+      btn.disabled = false;
+      setTimeout(() => {
+        result.classList.add('hidden');
+      }, 5000);
+    });
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import '../styles/global.css'
+import { Image } from 'astro:assets'; 
+import paw from '../assets/paw.svg';
+---
+
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 animate-fade-in">
+  <div class="bg-pine-surface/80 backdrop-blur-md border border-pine-overlay px-6 py-3 rounded-2xl flex justify-between items-center shadow-2xl">
+    
+    <div class="flex items-center">
+      <a href="">
+        <Image src={paw} alt="Logo de huella" class="size-8" />
+      </a>
+    </div>
+
+    <div class="flex gap-6 text-pine-text/80 text-sm">
+      <a href="#about" class="hover:text-pine-gold transition-colors">About</a>
+      <a href="#projects" class="hover:text-pine-gold transition-colors">Projects</a>
+      <a href="#contact" class="hover:text-pine-gold transition-colors">Contact</a>
+    </div>
+  </div>
+</nav>

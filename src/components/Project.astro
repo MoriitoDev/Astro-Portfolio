@@ -1,0 +1,73 @@
+---
+import { Github, ExternalLink, Folder } from '@lucide/astro'
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  description: string;
+  repoLink: string;
+  image: string | ImageMetadata;
+  tags?: string[];
+}
+
+const { title, description, repoLink, image, tags = [] } = Astro.props;
+---
+
+<div class="project-card group relative w-full h-full">
+  
+  <div class="absolute -inset-2 bg-pine-rose/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+  <div class="relative bg-pine-surface border border-pine-overlay p-5 rounded-2xl shadow-xl transition-all duration-300 group-hover:-rotate-1 group-hover:-translate-y-2 min-h-full flex flex-col">
+    
+    <div class="relative h-44 mb-4 overflow-hidden rounded-xl border border-pine-overlay/50 shrink-0">
+      <Image 
+        src={image as any} 
+        alt={title} 
+        width={600}
+        height={350}
+        class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+      />
+
+      <div class="absolute top-2 right-2 bg-pine-base/90 backdrop-blur-sm p-2 rounded-lg border border-pine-overlay transform translate-y-[-10px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+        <a href={repoLink} target="_blank" class="text-pine-rose hover:text-pine-love">
+          <Github class="size-5" />
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col flex-grow">
+      <div class="flex items-center gap-2 mb-2">
+        <Folder class="size-4 text-pine-gold" />
+        <h3 class="font-kalam text-pine-foam text-xl leading-none">{title}</h3>
+      </div>
+      
+      <p class="font-kalam text-pine-text/70 text-base mb-4 leading-relaxed">
+        {description}
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+        {tags.map(tag => (
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pine-pine/10 text-pine-pine border border-pine-pine/20 uppercase">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    view-timeline-name: --card;
+    view-timeline-axis: block;
+    animation-timeline: --card;
+    animation-name: card-reveal;
+    animation-range: entry 5% cover 25%;
+    animation-fill-mode: both;
+  }
+  @keyframes card-reveal {
+    from { opacity: 0; transform: scale(0.9) translateY(40px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+</style>

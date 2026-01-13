@@ -1,0 +1,41 @@
+---
+import Project from "./Project.astro"
+import Techs from "./Techs.astro"
+
+import portfolioImg from '../assets/portfolio.png';
+import kurozImg from '../assets/kuroz.jpg'; 
+---
+
+<section id="projects" class="py-20 px-4 max-w-6xl mx-auto min-h-screen mt-8">
+  
+  <h2 class="font-inspiration text-pine-pine text-9xl text-center mb-16">My Projects</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+    
+    <Project 
+      title="Wiku"
+      description="An AI study assistant made using Tauri and QWen Models."
+      image="https://raw.githubusercontent.com/MoriitoDev/Wiku/master/public/Wiku-banner.jpg"
+      repoLink="https://github.com/MoriitoDev/Wiku"
+      tags={["React", "Tailwind", "FastAPI", "Tauri"]}
+    />
+
+    <Project 
+      title="Portfolio Astro"
+      description="Portfolio website built with Astro and Tailwind CSS."
+      image={portfolioImg} 
+      repoLink="https://github.com/MoriitoDev/Astro-Portfolio"
+      tags={["Astro", "Tailwind"]}
+    />
+
+    <Project 
+      title="KuroZ Bot"
+      description="Bot to manage discord servers with moderation, leveling, and fun commands."
+      image={kurozImg}
+      repoLink="https://github.com/MoriitoDev/kuroz_development"
+      tags={["Python", "FastAPI", "Discord.py", "SQLite"]}
+    />
+    
+  </div>
+  <Techs />
+</section>
