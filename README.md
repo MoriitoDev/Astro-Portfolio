@@ -1,46 +1,51 @@
-# Astro Starter Kit: Basics
+# 🚀 Mori Portfolio | Built with Astro & Tailwind CSS
 
-```sh
-npm create astro@latest -- --template basics
-```
+A minimalist, high-performance personal portfolio designed to showcase my projects and skills. Built with a focus on speed, clean code, and modern aesthetics.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Web preview](./public/preview.png)
+**Live Demo:** [mori-delta.vercel.app](https://mori-delta.vercel.app)
 
-## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** [Astro](https://astro.build/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Icons:** [Lucide Icons](https://lucide.dev/) / [Astro Icon](https://www.astroicon.dev/)
+* **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## 📁 Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/          # Static assets (images, icons, etc.)
+├── src/
+│   ├── components/  # Reusable UI elements (Navbar, ProjectCards)
+│   ├── layouts/     # Page templates
+│   ├── pages/       # Routes and main views
+│   ├── assets/      # Various assets for the frontend.
+│   └── styles/      # Global CSS and Tailwind configurations
+├── astro.config.mjs 
+└── tailwind.config.mjs
+```
+---
+
+# 🧑‍💻Run this project locally
+
+- Download the project or clone it:
+```Shell
+git clone https://github.com/MoriitoDev/Astro-Portfolio.git
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Install dependencies:
+```Shell
+npm install
+```
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Start the development server:
+```Shell
+npm run dev
+```
