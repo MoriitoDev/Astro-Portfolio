@@ -3,34 +3,47 @@ import Image from "astro/components/Image.astro";
 import pfp from "../assets/pfp.webp";
 ---
 
-<main class="mt-24 font-recursive animate-enter delay-200 min-h-[80vh]">
+<main
+  class="mt-24 p-20 font-recursive animate-enter delay-200 min-h-fit w-full overflow-hidden"
+>
   <div
-    class="ml-32 font-recursive h-fit tracking-tight font-semibold flex flex-row align-middle items-center mt-10"
+    class="px-4 lg:ml-32 lg:px-0 font-recursive h-fit tracking-tight font-semibold flex flex-col md:flex-row align-middle items-center mt-10 gap-4 md:gap-0"
   >
-    <h1 class="text-5xl dark:text-white transition-colors duration-300">Hey, I'm</h1>
-    
-    <Image 
-      src={pfp} 
+    <h1
+      class="text-4xl md:text-5xl dark:text-white transition-colors duration-300"
+    >
+      Hey, I'm
+    </h1>
+
+    <Image
+      src={pfp}
       alt="Rafa"
-      width={400} 
+      width={400}
       format="png"
       quality={"max"}
-      class="size-48 scale-50 rounded-3xl border-[6px] border-white dark:border-gray-500 shadow-2xl -rotate-5 hover:rotate-0 transition-all duration-300 ease-out transform-gpu will-change-transform -ml-6 -mr-6"
+      class="size-32 md:size-48 scale-100 md:scale-50 rounded-3xl border-[6px] border-white dark:border-gray-500 shadow-2xl -rotate-5 hover:rotate-0 transition-all duration-300 ease-out transform-gpu will-change-transform md:-ml-6 md:-mr-6 my-4 md:my-0"
     />
-    <h1 class="text-5xl dark:text-white transition-colors duration-300">Rafa.</h1>
-    <br />
+    <h1
+      class="text-4xl md:text-5xl dark:text-white transition-colors duration-300"
+    >
+      Rafa.
+    </h1>
   </div>
 
-  <div class="ml-32 font-recursive tracking-tight flex flex-row -mt-4">
-    <h1 class="text-5xl font-semibold leading-tight dark:text-gray-100 transition-colors duration-300">
+  <div
+    class="px-4 lg:ml-32 lg:px-0 font-recursive tracking-tight flex flex-col md:flex-row mt-6 md:-mt-4 text-center md:text-left"
+  >
+    <h1
+      class="text-3xl md:text-5xl font-semibold leading-tight dark:text-gray-100 transition-colors duration-300"
+    >
       And I make Modern and
-      <span class="relative inline-block">
+      <span class="relative inline-block whitespace-nowrap">
         <span class="relative z-10">Aesthetic</span>
 
         <svg
           viewBox="0 0 200 20"
           preserveAspectRatio="none"
-          class="absolute -bottom-2 left-0 w-[105%] h-5 text-[#4a80d9] opacity-90 -rotate-1 pointer-events-none"
+          class="absolute -bottom-1 md:-bottom-2 left-0 w-[105%] h-3 md:h-5 text-[#4a80d9] opacity-90 -rotate-1 pointer-events-none"
         >
           <path
             class="animate-scribble"
@@ -47,24 +60,26 @@ import pfp from "../assets/pfp.webp";
   </div>
 
   <div
-    class="ml-32 mt-10 font-recursive tracking-tight flex flex-col gap-8 animate-enter delay-200"
+    class="px-6 lg:ml-32 lg:px-0 mt-12 md:mt-10 font-recursive tracking-tight flex flex-col gap-8 animate-enter delay-200 items-center md:items-start"
   >
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3 items-center md:items-start w-full">
       <h2
-        class="text-lg font-bold text-gray-900/85 dark:text-gray-200 uppercase tracking-widest pl-1 transition-colors duration-300"
+        class="text-lg font-bold text-gray-900/85 dark:text-gray-200 uppercase tracking-widest pl-1 transition-colors duration-300 text-center md:text-left"
       >
         Current Focus
       </h2>
 
-      <div class="flex flex-row gap-4">
+      <div
+        class="flex flex-row gap-4 flex-wrap justify-center md:justify-start"
+      >
         <div class="relative group">
           <div
-            class="p-3 bg-white dark:bg-gray-800/50 
-                   border border-gray-200 dark:border-white/10 
-                   rounded-2xl shadow-sm 
-                   hover:shadow-md 
-                   hover:border-blue-300 dark:hover:border-blue-500/50 
-                   hover:bg-blue-50 dark:hover:bg-blue-900/20 
+            class="p-3 bg-white dark:bg-gray-800/50
+                   border border-gray-200 dark:border-white/10
+                   rounded-2xl shadow-sm
+                   hover:shadow-md
+                   hover:border-blue-300 dark:hover:border-blue-500/50
+                   hover:bg-blue-50 dark:hover:bg-blue-900/20
                    transition-all duration-300 cursor-default"
           >
             <svg
@@ -85,13 +100,7 @@ import pfp from "../assets/pfp.webp";
             </svg>
           </div>
           <div
-            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 
-                   bg-white/80 dark:bg-gray-800/90 
-                   backdrop-blur-xl 
-                   border border-white/40 dark:border-white/10 
-                   shadow-xl rounded-lg text-xs font-medium 
-                   text-gray-800 dark:text-gray-200 
-                   whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
           >
             Fullstack Development
           </div>
@@ -99,12 +108,12 @@ import pfp from "../assets/pfp.webp";
 
         <div class="relative group">
           <div
-            class="p-3 bg-white dark:bg-gray-800/50 
-                   border border-gray-200 dark:border-white/10 
-                   rounded-2xl shadow-sm 
-                   hover:shadow-md 
-                   hover:border-purple-300 dark:hover:border-purple-500/50 
-                   hover:bg-purple-50 dark:hover:bg-purple-900/20 
+            class="p-3 bg-white dark:bg-gray-800/50
+                   border border-gray-200 dark:border-white/10
+                   rounded-2xl shadow-sm
+                   hover:shadow-md
+                   hover:border-purple-300 dark:hover:border-purple-500/50
+                   hover:bg-purple-50 dark:hover:bg-purple-900/20
                    transition-all duration-300 cursor-default"
           >
             <svg
@@ -129,13 +138,7 @@ import pfp from "../assets/pfp.webp";
             >
           </div>
           <div
-            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 
-                   bg-white/80 dark:bg-gray-800/90 
-                   backdrop-blur-xl 
-                   border border-white/40 dark:border-white/10 
-                   shadow-xl rounded-lg text-xs font-medium 
-                   text-gray-800 dark:text-gray-200 
-                   whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
           >
             UI Design
           </div>
@@ -143,23 +146,19 @@ import pfp from "../assets/pfp.webp";
       </div>
     </div>
 
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3 items-center md:items-start w-full">
       <h2
-        class="text-lg font-bold text-gray-900/85 dark:text-gray-200 uppercase tracking-widest pl-1 transition-colors duration-300"
+        class="text-lg font-bold text-gray-900/85 dark:text-gray-200 uppercase tracking-widest pl-1 transition-colors duration-300 text-center md:text-left"
       >
         Downtime & Hobbies
       </h2>
 
-      <div class="flex flex-row gap-4">
+      <div
+        class="flex flex-row gap-4 flex-wrap justify-center md:justify-start"
+      >
         <div class="relative group">
           <div
-            class="p-3 bg-white dark:bg-gray-800/50 
-                   border border-gray-200 dark:border-white/10 
-                   rounded-2xl shadow-sm 
-                   hover:shadow-md 
-                   hover:border-rose-300 dark:hover:border-rose-500/50 
-                   hover:bg-rose-50 dark:hover:bg-rose-900/20 
-                   transition-all duration-300 cursor-default"
+            class="p-3 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-md hover:border-rose-300 dark:hover:border-rose-500/50 hover:bg-rose-50 dark:hover:bg-rose-900/20 transition-all duration-300 cursor-default"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -181,13 +180,7 @@ import pfp from "../assets/pfp.webp";
             >
           </div>
           <div
-            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 
-                   bg-white/80 dark:bg-gray-800/90 
-                   backdrop-blur-xl 
-                   border border-white/40 dark:border-white/10 
-                   shadow-xl rounded-lg text-xs font-medium 
-                   text-gray-800 dark:text-gray-200 
-                   whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
           >
             Boxing
           </div>
@@ -195,13 +188,7 @@ import pfp from "../assets/pfp.webp";
 
         <div class="relative group">
           <div
-            class="p-3 bg-white dark:bg-gray-800/50 
-                   border border-gray-200 dark:border-white/10 
-                   rounded-2xl shadow-sm 
-                   hover:shadow-md 
-                   hover:border-amber-900 dark:hover:border-amber-500/50 
-                   hover:bg-amber-50 dark:hover:bg-amber-900/20 
-                   transition-all duration-300 cursor-default"
+            class="p-3 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-md hover:border-amber-900 dark:hover:border-amber-500/50 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-all duration-300 cursor-default"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -222,13 +209,7 @@ import pfp from "../assets/pfp.webp";
             >
           </div>
           <div
-            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 
-                   bg-white/80 dark:bg-gray-800/90 
-                   backdrop-blur-xl 
-                   border border-white/40 dark:border-white/10 
-                   shadow-xl rounded-lg text-xs font-medium 
-                   text-gray-800 dark:text-gray-200 
-                   whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
           >
             Anime
           </div>
@@ -236,13 +217,7 @@ import pfp from "../assets/pfp.webp";
 
         <div class="relative group">
           <div
-            class="p-3 bg-white dark:bg-gray-800/50 
-                   border border-gray-200 dark:border-white/10 
-                   rounded-2xl shadow-sm 
-                   hover:shadow-md 
-                   hover:border-emerald-300 dark:hover:border-emerald-500/50 
-                   hover:bg-emerald-50 dark:hover:bg-emerald-900/20 
-                   transition-all duration-300 cursor-default"
+            class="p-3 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-2xl shadow-sm hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-500/50 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300 cursor-default"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -261,13 +236,7 @@ import pfp from "../assets/pfp.webp";
             </svg>
           </div>
           <div
-            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 
-                   bg-white/80 dark:bg-gray-800/90 
-                   backdrop-blur-xl 
-                   border border-white/40 dark:border-white/10 
-                   shadow-xl rounded-lg text-xs font-medium 
-                   text-gray-800 dark:text-gray-200 
-                   whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 scale-95 group-hover:scale-100 transition-all duration-300 ease-out origin-bottom pointer-events-none z-20"
           >
             Music
           </div>
@@ -275,7 +244,9 @@ import pfp from "../assets/pfp.webp";
       </div>
     </div>
 
-    <div class="mt-4 relative w-full max-w-137 group cursor-pointer">
+    <div
+      class="mt-4 relative w-full max-w-137 group cursor-pointer self-center md:self-start"
+    >
       <div
         class="absolute -inset-2 bg-linear-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-[20px] blur-2xl opacity-25 group-hover:opacity-50 animate-pulse-siri transition duration-500"
       >
@@ -283,30 +254,37 @@ import pfp from "../assets/pfp.webp";
 
       <a
         href="#contact"
-        class="relative flex items-center justify-between 
-               bg-white/60 dark:bg-gray-900/80 
-               backdrop-blur-xl 
-               border border-white/80 dark:border-white/10 
-               shadow-sm rounded-xl px-4 py-3 
+        class="relative flex items-center justify-between
+               bg-white/60 dark:bg-gray-900/80
+               backdrop-blur-xl
+               border border-white/80 dark:border-white/10
+               shadow-sm rounded-xl px-4 py-3
                hover:scale-[1.01] transition-all duration-300"
       >
         <div class="flex flex-col ml-2">
-          <span class="text-xl font-light text-gray-800 dark:text-gray-100 tracking-tight transition-colors"
+          <span
+            class="text-xl font-light text-gray-800 dark:text-gray-100 tracking-tight transition-colors"
             >Let's build something together</span
           >
           <span
             class="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mt-0.5 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors"
-            >Contact me <span class="text-blue-500/80 dark:text-blue-400/80">press enter</span> </span>
+            >Contact me <span
+              class="text-blue-500/80 dark:text-blue-400/80 hidden sm:inline"
+              >press enter</span
+            ><span class="text-blue-500/80 dark:text-blue-400/80 sm:hidden"
+              >tap here</span
+            >
+          </span>
         </div>
 
         <div
-          class="flex items-center justify-center size-9 
-                 bg-gradient-to-b from-gray-50 to-gray-100 
-                 dark:from-gray-800 dark:to-gray-900 
-                 border border-gray-200 border-b-2 
+          class="flex items-center justify-center size-9
+                 bg-linear-to-b from-gray-50 to-gray-100
+                 dark:from-gray-800 dark:to-gray-900
+                 border border-gray-200 border-b-2
                  dark:border-gray-700 dark:border-b-gray-600
-                 rounded-lg 
-                 group-hover:border-blue-300 dark:group-hover:border-blue-500/50 
+                 rounded-lg
+                 group-hover:border-blue-300 dark:group-hover:border-blue-500/50
                  transition-colors shadow-sm"
         >
           <svg
@@ -331,23 +309,22 @@ import pfp from "../assets/pfp.webp";
 </main>
 
 <script>
-  const contactSection = document.getElementById('contact');
-
-  // Aseguramos que el script se ejecute correctamente en Astro
-  // Usamos 'keydown' directamente en document para mejor respuesta
-  document.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
+  const contactSection = document.getElementById("contact");
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      // Validación extra para evitar scroll si no hay sección
+      if (contactSection) {
         event.preventDefault();
-        if (contactSection) {
-          contactSection.scrollIntoView({ 
-            behavior: 'smooth' 
-          });
-        }
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+        });
       }
+    }
   });
 </script>
 
 <style>
+  /* Tus estilos se mantienen igual */
   @keyframes draw {
     to {
       stroke-dashoffset: 0;
