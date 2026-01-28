@@ -1,0 +1,21 @@
+{
+  "name": "new-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/inter-tight": "^5.2.7",
+    "@fontsource/noto-serif": "^5.2.9",
+    "@fontsource/recursive": "^5.2.8",
+    "@fontsource/victor-mono": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.15",
+    "tailwindcss": "^4.1.18"
+  }
+}
