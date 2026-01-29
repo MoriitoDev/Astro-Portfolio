@@ -3,7 +3,7 @@
 A minimalist, high-performance personal portfolio designed to showcase my projects and skills. Built with a focus on speed, clean code, and modern aesthetics.
 
 ![Web preview](./public/preview.png)
-**Live Demo:** [mori-delta.vercel.app](https://mori-delta.vercel.app)
+**Live Demo:** [rafacz.pages.dev](https://rafacz.pages.dev/)
 
 
 ---
@@ -12,8 +12,8 @@ A minimalist, high-performance personal portfolio designed to showcase my projec
 
 * **Framework:** [Astro](https://astro.build/)
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-* **Icons:** [Lucide Icons](https://lucide.dev/) / [Astro Icon](https://www.astroicon.dev/)
-* **Deployment:** [Vercel](https://vercel.com/)
+* **Icons:** [Lucide Icons](https://lucide.dev/)
+* **Deployment:** [Cloudflare Pages](https://pages.dev/)
 
 ---
 
