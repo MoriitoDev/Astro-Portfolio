@@ -1,7 +1,7 @@
 {
-  "name": "new-portfolio",
+  "name": "portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/cloudflare": "^12.6.5",
     "@fontsource/geist-sans": "^5.2.5",
     "@fontsource/inter-tight": "^5.2.7",
     "@fontsource/noto-serif": "^5.2.9",
